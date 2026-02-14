@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>For My Valentine, Ma Adam <3</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: Calibri, Arial, sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #f2b6b6);
+  text-align: center;
+  color: #8b1e1e;
+  overflow-x: hidden;
+}
+
+/* INTRO SCREEN */
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #ffffff, #f2b6b6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #8b1e1e;
+  text-align: center;
+}
+
+button {
+  background: #8b1e1e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: #6d1515;
+}
+
+/* QUOTE */
+.quote {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.8em;
+  margin-top: 80px;
+  padding: 20px;
+}
+
+/* LETTER */
+.letter {
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 1.1em;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* POLAROID */
+.polaroid {
+  background: white;
+  padding: 10px 10px 40px 10px;
+  display: inline-block;
+  margin: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(100px) rotate(-5deg);
+  animation: slideUp 1s forwards;
+  position: relative;
+}
+
+.polaroid img {
+  width: 250px;
+}
+
+/* FLASH EFFECT */
+.flash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: flash 0.6s ease;
+}
+
+@keyframes flash {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+#videoSection {
+  display: none;
+  margin-bottom: 50px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD INTRO -->
+<div id="intro">
+  <h2>fill in the password</h2>
+  <input type="password" id="password" placeholder="the day you asked me to be your gf">
+  <button onclick="checkPassword()">Masuk</button>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<div id="content" style="display:none;">
+
+<div class="quote">
+  “Love is old, love is new, love is all, love is us.”
+</div>
+
+<div class="letter">
+happy valentine’s day, sayang &gt;&lt;<br><br>
+
+idk where to start, karena semua kata tuh somehow ga cukup buat jelasin how blessed i am for having you. HUFTTTTT huhuhu, maafin ame ya kalau text ini terlalu cheesy dan jelek D:<br><br>
+
+first of all, thank you for staying. for choosing me every single day, even on my bad days, even when aku lagi nyebelin, overthinking, atau tiba-tiba silent mode nggak jelas. kamu selalu sabar banget, and i don’t say this enough, but i really, really appreciate that.<br><br>
+
+being with you feels safe. aku bisa jadi diri aku sendiri tanpa harus pura-pura kuat atau pura-pura ga butuh siapa-siapa. with you, i can be soft. i can be childish. i can be annoying. and you still look at me like i’m someone worth loving. not everyone can do that, babe.<br><br>
+
+i love when you care tanpa harus selalu banyak kata. cara kamu ngingetin aku jaga makan, istirahat, controlling my emotions, et al. even tho kamu suka sok begayaan tampng mogging tapi i know that you still care. it’s the little things that make me fall for you over and over again.<br><br>
+
+im sorry if im too avoidant, demanding, terlalu sensitif, atau terlalu banyak maunya, please know that it’s never because i don’t appreciate you. it’s just me learning how to love and be loved better. and i’m glad i’m learning it with you.<br><br>
+
+i don’t know what the future holds, and honestly hidup kita masih puanjangg banget. tapi for now, untuk hari ini, aku cuma mau kamu tau kalau aku bahagia banget ada di sisi kamu. and if love is a choice, then i choose you. lagi. dan lagi. dan lagi.<br><br>
+
+thank you for being my comfort, my partner, my favorite person. i hope that we can grow together, bukan cuma dalam hal yang manisnya, tapi juga dalam hal yang dukanya. because for me, love isn’t only butterflies, it’s all about being respectful to each other and caring. lastly, and no matter how far we are, you are still my home.<br><br>
+
+i love you. more than i can put into words, even in two languages at once 🤍
+</div>
+
+<div>
+  <div class="polaroid" style="animation-delay:0.5s;">
+    <div class="flash"></div>
+    <img src="foto1.jpeg">
+  </div>
+
+  <div class="polaroid" style="animation-delay:1.2s;">
+    <div class="flash"></div>
+    <img src="foto2.jpeg">
+  </div>
+</div>
+
+<button onclick="showVideo()">play</button>
+
+<div id="videoSection">
+  <video width="320" controls>
+    <source src="video1.mp4" type="video/mp4">
+  </video>
+</div>
+
+</div>
+
+<script>
+function checkPassword() {
+  var input = document.getElementById("password").value;
+  if(input === "1912") { // GANTI DENGAN PASSWORD KAMU
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    document.getElementById("bgMusic").play();
+  } else {
+    alert("salah! :p coba lagi.");
+  }
+}
+
+function showVideo() {
+  document.getElementById("videoSection").style.display = "block";
+}
+</script>
+
+</body>
+</html>
