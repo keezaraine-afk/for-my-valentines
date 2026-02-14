@@ -91,11 +91,17 @@ button {
 }
 
 /* POLAROID */
+.photo-container {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .polaroid {
   background: white;
   padding: 10px 10px 40px 10px;
-  display: inline-block;
-  margin: 20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   opacity: 0;
   transform: translateY(100px) rotate(-5deg);
@@ -105,6 +111,7 @@ button {
 
 .polaroid img {
   width: 250px;
+  display: block;
 }
 
 /* FLASH EFFECT */
